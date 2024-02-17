@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { userContext } from '../../context/userContext';
+import { HOST } from '../../environments/host';
 
 // Import utilities
 
@@ -32,7 +33,7 @@ function DashboardCard06() {
       }
     })
 
-    const response = await fetch("http://localhost:3000/transacoes", {
+    const response = await fetch(HOST + "transacoes", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
