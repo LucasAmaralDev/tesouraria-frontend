@@ -24,6 +24,11 @@ function DropdownProfile({
 
     const data = await response.json();
 
+    if (!response.ok) {
+      localStorage.removeItem('token');
+      window.location.href = '/login';
+    }
+
     setUser({
       username: data.nome,
       cargo: data.cargo,
