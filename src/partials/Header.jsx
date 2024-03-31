@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import SearchModal from '../components/ModalSearch';
-import Notifications from '../components/DropdownNotifications';
-import Help from '../components/DropdownHelp';
 import UserMenu from '../components/DropdownProfile';
 import ThemeToggle from '../components/ThemeToggle';
 
 function Header({ sidebarOpen, setSidebarOpen }) {
-  const [searchModalOpen, setSearchModalOpen] = useState(false);
+
+  const token = localStorage.getItem('token');
+  
+  if (!token) {
+    window.location.href = '/login'
+  }
 
   return (
     <header className="sticky top-0 bg-white dark:bg-[#182235] border-b border-slate-200 dark:border-slate-700 z-30">
